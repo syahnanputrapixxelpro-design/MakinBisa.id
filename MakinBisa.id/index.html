@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MakinBisa.id - Bimbingan Belajar Terbaik</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+
+    <style>
+        /* === GLOBAL VARIABLES === */
+        :root {
+            --primary: #0d6efd;
+            --secondary: #0dcaf0;
+            /* Cyan/Tosca */
+            --dark-blue: #0a2558;
+            /* Biru Tua Gelap */
+            --gradient-bg: linear-gradient(135deg, #0a2558 0%, #0099ff 100%);
+            --body-bg: #ffffff;
+            --section-padding: 100px 0;
+            --section-padding-mobile: 60px 0;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: #444;
+            overflow-x: hidden;
+            /* Mencegah scroll samping di HP */
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        /* === TITLE STYLING === */
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+            padding: 0 15px;
+        }
+
+        .section-title h2 {
+            font-weight: 800;
+            color: var(--dark-blue);
+            position: relative;
+            display: inline-block;
+            padding-bottom: 15px;
+            margin-bottom: 15px;
+        }
+
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            width: 60px;
+            height: 4px;
+            background: var(--secondary);
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 2px;
+        }
+
+        /* === NAVBAR === */
+        .navbar {
+            background: white;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+            padding: 15px 0;
+            transition: 0.3s;
+        }
+
+        .navbar-brand {
+            font-weight: 700;
+            color: var(--dark-blue) !important;
+            font-size: 1.5rem;
+        }
+
+        .navbar-brand img {
+            height: 40px;
+            /* Ukuran Logo */
+            width: auto;
+            margin-right: 10px;
+        }
+
+        .nav-link {
+            font-weight: 500;
+            color: var(--dark-blue) !important;
+            margin: 0 10px;
+            transition: 0.3s;
+        }
+
+        .nav-link:hover {
+            color: var(--secondary) !important;
+        }
+
+        .btn-daftar {
+            background: var(--gradient-bg);
+            color: white !important;
+            padding: 10px 30px;
+            border-radius: 50px;
+            font-weight: 600;
+            box-shadow: 0 4px 15px rgba(13, 110, 253, 0.3);
+            transition: 0.3s;
+            border: none;
+        }
+
+        .btn-daftar:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(13, 110, 253, 0.4);
+        }
+
+        /* === HERO SECTION === */
+        .hero-section {
+            padding: 160px 0 100px 0;
+            /* Padding atas besar utk kompensasi navbar fixed */
+            background: #f8faff;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-title {
+            font-size: 3.5rem;
+            font-weight: 800;
+            color: var(--dark-blue);
+            line-height: 1.2;
+        }
+
+        .hero-subtitle {
+            font-size: 1.25rem;
+            color: #666;
+            margin: 25px 0 35px 0;
+        }
+
+        .hero-img {
+            width: 100%;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(0px);
+            }
+
+            50% {
+                transform: translateY(-15px);
+            }
+
+            100% {
+                transform: translateY(0px);
+            }
+        }
+
+        /* === ABOUT SECTION === */
+        #about {
+            padding: var(--section-padding);
+        }
+
+        .about-card {
+            background: white;
+            padding: 40px 30px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
+            transition: 0.3s;
+            height: 100%;
+            border: 1px solid #f0f0f0;
+            text-align: center;
+        }
+
+        .about-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
+            border-color: var(--secondary);
+        }
+
+        .about-icon {
+            font-size: 3rem;
+            color: var(--secondary);
+            margin-bottom: 20px;
+            display: inline-block;
+        }
+
+        /* === GALLERY SECTION === */
+        #gallery {
+            padding: var(--section-padding);
+            background: #f9fbfd;
+        }
+
+        .gallery-item {
+            border-radius: 15px;
+            overflow: hidden;
+            position: relative;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .gallery-img {
+            width: 100%;
+            height: 250px;
+            /* Tinggi Fix Desktop */
+            object-fit: cover;
+            transition: transform 0.4s;
+        }
+
+        .gallery-item:hover .gallery-img {
+            transform: scale(1.1);
+        }
+
+        /* === CTA SECTION === */
+        .cta-section {
+            background: var(--gradient-bg);
+            padding: 80px 0;
+            color: white;
+            text-align: center;
+        }
+
+        .btn-cta-light {
+            background: white;
+            color: var(--primary);
+            font-weight: 700;
+            padding: 15px 40px;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            margin-top: 20px;
+            transition: 0.3s;
+        }
+
+        .btn-cta-light:hover {
+            background: #f0f0f0;
+            transform: scale(1.05);
+        }
+
+        /* === FAQ SECTION === */
+        #faq {
+            padding: var(--section-padding);
+        }
+
+        .accordion-item {
+            border: none;
+            margin-bottom: 15px;
+            border-radius: 10px !important;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.03);
+            overflow: hidden;
+        }
+
+        .accordion-button {
+            font-weight: 600;
+            color: var(--dark-blue);
+            padding: 20px;
+        }
+
+        .accordion-button:not(.collapsed) {
+            color: var(--primary);
+            background-color: rgba(13, 202, 240, 0.1);
+        }
+
+        .accordion-button:focus {
+            box-shadow: none;
+        }
+
+        /* === FOOTER === */
+        footer {
+            background: var(--dark-blue);
+            color: white;
+            padding: 70px 0 30px 0;
+        }
+
+        footer h5 {
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: var(--secondary);
+        }
+
+        footer a {
+            color: #b0b0b0;
+            display: block;
+            margin-bottom: 10px;
+            transition: 0.3s;
+        }
+
+        footer a:hover {
+            color: white;
+            padding-left: 5px;
+        }
+
+        /* =========================================
+           MOBILE OPTIMIZATION RULES (PERFECT MOBILE)
+           ========================================= */
+        @media (max-width: 991px) {
+
+            /* Navbar Mobile */
+            .navbar-collapse {
+                background: white;
+                padding: 20px;
+                border-radius: 10px;
+                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+                margin-top: 15px;
+            }
+
+            .nav-link {
+                margin: 10px 0;
+                text-align: center;
+            }
+
+            .btn-daftar {
+                display: block;
+                width: 100%;
+                text-align: center;
+                margin-top: 10px;
+            }
+
+            /* Hero Mobile */
+            .hero-section {
+                padding: 120px 0 60px 0;
+                text-align: center;
+            }
+
+            .hero-title {
+                font-size: 2.2rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1rem;
+                padding: 0 10px;
+            }
+
+            .hero-img {
+                margin-top: 40px;
+            }
+
+            /* General Section Padding Mobile */
+            #about,
+            #gallery,
+            #faq {
+                padding: var(--section-padding-mobile);
+            }
+
+            /* Gallery Mobile (2 Kolom Rapi) */
+            .gallery-img {
+                height: 160px;
+            }
+
+            /* Tinggi gambar mengecil di HP biar proporsional */
+
+            /* Footer Mobile */
+            footer {
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center" href="#">
+                <img src="logo.png" alt="Logo">
+            </a>
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto align-items-center">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Beranda</a></li>
+                    <li class="nav-item"><a class="nav-link" href="about.html">Tentang</a></li>
+                    <li class="nav-item"><a class="nav-link" href="gallery.html">Galeri</a></li>
+                    <li class="nav-item"><a class="nav-link" href="paket.html">Paket</a></li>
+                    <li class="nav-item"><a class="nav-link" href="Blog.html">Blog</a></li>
+                    <li class="nav-item ms-lg-3">
+                        <a href="#cta" class="btn btn-daftar">Daftar Sekarang</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <section id="home" class="hero-section">
+        <div class="container">
+            <div class="row align-items-center">
+
+                <div class="col-lg-6">
+
+                    <h1 class="hero-title">Raih Prestasi Juara Bersama <span
+                            style="color: var(--secondary);">MakinBisa.id</span></h1>
+
+                    <div class="d-block d-lg-none text-center my-4">
+                        <img src="https://via.placeholder.com/600x400/0dcaf0/ffffff?text=Ilustrasi+Belajar"
+                            alt="Hero Mobile" class="img-fluid rounded-4 shadow hero-img-mobile">
+                    </div>
+
+                    <p class="hero-subtitle">Bimbingan belajar modern dengan mentor expert dan metode belajar yang
+                        adaptif sesuai kurikulum terbaru.</p>
+
+                    <div class="d-flex gap-3 justify-content-center justify-content-lg-start">
+                        <a href="#cta" class="btn btn-daftar btn-lg px-4 shadow">Mulai Belajar</a>
+                        <a href="#about" class="btn btn-outline-primary btn-lg px-4">Info Program</a>
+                    </div>
+                </div>
+
+                <div class="col-lg-6 d-none d-lg-block mb-4 mb-lg-0">
+                    <img src="https://via.placeholder.com/600x400/0dcaf0/ffffff?text=Ilustrasi+Belajar"
+                        alt="Hero Desktop" class="hero-img">
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="about">
+        <div class="container">
+            <div class="section-title">
+                <h2>Kenapa Kami?</h2>
+                <p>3 Alasan utama kenapa siswa memilih MakinBisa.id</p>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="about-card">
+                        <div class="about-icon"><i class="bi bi-person-workspace"></i></div>
+                        <h4>Mentor Juara</h4>
+                        <p class="text-muted small">Diajar oleh lulusan PTN terbaik yang berpengalaman dan friendly.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="about-card">
+                        <div class="about-icon"><i class="bi bi-journal-check"></i></div>
+                        <h4>Kurikulum Tepat</h4>
+                        <p class="text-muted small">Materi disesuaikan dengan kurikulum sekolah dan standar UTBK
+                            terbaru.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="about-card">
+                        <div class="about-icon"><i class="bi bi-alarm"></i></div>
+                        <h4>Waktu Fleksibel</h4>
+                        <p class="text-muted small">Bisa atur jadwal belajar sendiri tanpa mengganggu kegiatan sekolah.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="gallery">
+        <div class="container">
+            <div class="section-title">
+                <h2>Galeri Seru</h2>
+                <p>Suasana belajar yang kondusif dan menyenangkan</p>
+            </div>
+            <div class="row g-3">
+                <div class="col-6 col-lg-4">
+                    <div class="gallery-item"><img src="https://via.placeholder.com/400x300/1e3c72/ffffff?text=Kelas+1"
+                            class="gallery-img"></div>
+                </div>
+                <div class="col-6 col-lg-4">
+                    <div class="gallery-item"><img src="https://via.placeholder.com/400x300/2a5298/ffffff?text=Kelas+2"
+                            class="gallery-img"></div>
+                </div>
+                <div class="col-6 col-lg-4">
+                    <div class="gallery-item"><img
+                            src="https://via.placeholder.com/400x300/0dcaf0/ffffff?text=Mentoring" class="gallery-img">
+                    </div>
+                </div>
+                <div class="col-6 col-lg-4">
+                    <div class="gallery-item"><img src="https://via.placeholder.com/400x300/0a2558/ffffff?text=Try+Out"
+                            class="gallery-img"></div>
+                </div>
+                <div class="col-6 col-lg-4">
+                    <div class="gallery-item"><img src="https://via.placeholder.com/400x300/6610f2/ffffff?text=Diskusi"
+                            class="gallery-img"></div>
+                </div>
+                <div class="col-6 col-lg-4">
+                    <div class="gallery-item"><img src="https://via.placeholder.com/400x300/20c997/ffffff?text=Lulus"
+                            class="gallery-img"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="cta" class="cta-section">
+        <div class="container">
+            <h2 class="fw-bold mb-3">Siap Masuk Kampus Impian?</h2>
+            <p class="mb-4">Jangan tunda lagi, kuota kelas terbatas setiap bulannya!</p>
+            <a href="#" class="btn btn-cta-light shadow">Daftar Sekarang <i
+                    class="bi bi-arrow-right-circle ms-2"></i></a>
+        </div>
+    </section>
+
+    <section id="faq">
+        <div class="container">
+            <div class="section-title">
+                <h2>Tanya Jawab (FAQ)</h2>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="accordion" id="faqAccordion">
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="h1">
+                                <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#c1">
+                                    1. Bagaimana prosedur pendaftarannya?
+                                </button>
+                            </h2>
+                            <div id="c1" class="accordion-collapse collapse show" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">Klik tombol daftar, isi form data diri, pilih paket, dan
+                                    admin kami akan menghubungi via WhatsApp.</div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="h2">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#c2">
+                                    2. Apakah tersedia kelas Offline?
+                                </button>
+                            </h2>
+                            <div id="c2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">Ya, kelas offline tersedia di kantor pusat kami (Jakarta).
+                                    Sisanya tersedia via Online Interactive (Zoom).</div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="h3">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#c3">
+                                    3. Berapa biaya bimbingannya?
+                                </button>
+                            </h2>
+                            <div id="c3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">Biaya mulai dari Rp 450.000/bulan untuk paket Reguler. Ada
+                                    diskon khusus jika mengambil paket per semester.</div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="h4">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#c4">
+                                    4. Apakah ada garansi lulus PTN?
+                                </button>
+                            </h2>
+                            <div id="c4" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">Kami menyediakan program garansi uang kembali khusus untuk
+                                    Paket Super Intensif Karantina (S&K Berlaku).</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <h5>MakinBisa.id</h5>
+                    <p class="small text-white-50">Platform edukasi terdepan yang fokus pada pengembangan akademik dan
+                        karakter siswa Indonesia.</p>
+                </div>
+                <div class="col-lg-2 col-md-6 mb-4">
+                    <h5>Menu</h5>
+                    <a href="#home">Beranda</a>
+                    <a href="#about">Tentang Kami</a>
+                    <a href="#gallery">Galeri</a>
+                    <a href="#faq">FAQ</a>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <h5>Hubungi Kami</h5>
+                    <a href="#"><i class="bi bi-whatsapp me-2"></i> 0812-3456-7890</a>
+                    <a href="#"><i class="bi bi-envelope me-2"></i> halo@makinbisa.id</a>
+                    <a href="#"><i class="bi bi-geo-alt me-2"></i> Jakarta Selatan</a>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <h5>Ikuti Kami</h5>
+                    <div class="d-flex gap-3 justify-content-center justify-content-lg-start">
+                        <a href="#" class="fs-4 text-white"><i class="bi bi-instagram"></i></a>
+                        <a href="#" class="fs-4 text-white"><i class="bi bi-youtube"></i></a>
+                        <a href="#" class="fs-4 text-white"><i class="bi bi-tiktok"></i></a>
+                    </div>
+                </div>
+            </div>
+            <hr style="border-color: rgba(255,255,255,0.1);">
+            <div class="text-center small text-white-50">
+                &copy; 2024 MakinBisa.id. All Rights Reserved.
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

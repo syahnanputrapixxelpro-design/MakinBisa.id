@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Challenger - MakinBisa.id</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+    <!-- AOS Animation Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <style>
+        /* ============================
+              ROOT & BASIC STYLES
+        ============================ */
+        :root {
+            --primary: #0d6efd;
+            --secondary: #6610f2; /* Warna berbeda untuk membedakan paket */
+            --dark-blue: #0a2558;
+            --gradient-main: linear-gradient(135deg, #0a2558 0%, #6610f2 100%);
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: #f8f9fa;
+            color: #444;
+            overflow-x: hidden;
+        }
+
+        /* ============================
+              BACKGROUND DECORATION
+        ============================ */
+        .bg-decoration {
+            position: fixed;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(102, 16, 242, 0.1) 0%, transparent 70%);
+            border-radius: 50%;
+            z-index: -1;
+            bottom: -100px;
+            left: -100px;
+        }
+
+        /* ============================
+                  NAVBAR
+        ============================ */
+        .navbar { 
+            background: white; 
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05); 
+            padding: 15px 0; 
+        }
+        .navbar-brand { 
+            font-weight: 800; 
+            color: var(--dark-blue) !important; 
+        }
+
+        /* ============================
+                MAIN WRAPPER
+        ============================ */
+        .main-wrapper {
+            padding: 160px 0 100px 0;
+        }
+
+        /* ============================
+               STICKY IMAGE COLUMN 
+        ============================ */
+        @media (min-width: 992px) {
+            .sticky-column {
+                position: -webkit-sticky;
+                position: sticky;
+                top: 120px;
+                z-index: 10;
+            }
+        }
+
+        .image-container {
+            position: relative;
+            padding: 20px;
+        }
+
+        .img-main {
+            width: 100%;
+            border-radius: 40px;
+            box-shadow: 0 30px 60px rgba(10, 37, 88, 0.2);
+            transition: 0.5s;
+            position: relative;
+            z-index: 2;
+        }
+
+        .image-container::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: var(--secondary);
+            top: 40px;
+            left: -20px;
+            border-radius: 40px;
+            z-index: 1;
+            opacity: 0.15;
+        }
+
+        /* ============================
+                CONTENT DETAIL
+        ============================ */
+        .content-box {
+            padding-left: 30px;
+        }
+
+        .package-title {
+            font-weight: 800;
+            font-size: 3.5rem;
+            color: var(--dark-blue);
+            line-height: 1.1;
+            margin-bottom: 10px;
+        }
+
+        .price-wrapper {
+            background: white;
+            display: inline-block;
+            padding: 10px 30px;
+            border-radius: 20px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+            margin-bottom: 30px;
+        }
+
+        .price-amount {
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--secondary);
+        }
+
+        /* ============================
+                FACILITY ITEMS
+        ============================ */
+        .facility-item {
+            background: white;
+            margin-bottom: 15px;
+            padding: 15px 20px;
+            border-radius: 18px;
+            display: flex;
+            align-items: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.02);
+            transition: 0.3s;
+            border: 1px solid transparent;
+        }
+
+        .facility-item:hover {
+            border-color: var(--secondary);
+            transform: translateX(10px);
+        }
+
+        .facility-item i {
+            width: 40px;
+            height: 40px;
+            background: rgba(102, 16, 242, 0.1);
+            color: var(--secondary);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            font-size: 1.2rem;
+        }
+
+        /* ============================
+                 FORM SECTION
+        ============================ */
+        .form-glass {
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            padding: 40px;
+            border-radius: 35px;
+            box-shadow: 0 25px 50px rgba(10, 37, 88, 0.1);
+            margin-top: 40px;
+        }
+
+        .input-group-custom {
+            margin-bottom: 20px;
+        }
+
+        .input-group-custom label {
+            font-weight: 700;
+            font-size: 0.85rem;
+            color: var(--dark-blue);
+            margin-bottom: 8px;
+            display: block;
+        }
+
+        .input-group-custom input {
+            width: 100%;
+            padding: 15px 20px;
+            border-radius: 15px;
+            border: 2px solid #eef2f6;
+            background: white;
+            transition: 0.3s;
+        }
+
+        .input-group-custom input:focus {
+            outline: none;
+            border-color: var(--secondary);
+            box-shadow: 0 0 15px rgba(102, 16, 242, 0.2);
+        }
+
+        /* ============================
+                 BUTTON STYLE
+        ============================ */
+        .btn-submit-wa {
+            background: #25d366;
+            color: white;
+            border: none;
+            padding: 18px;
+            width: 100%;
+            border-radius: 18px;
+            font-weight: 800;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            transition: 0.4s;
+            box-shadow: 0 10px 30px rgba(37, 211, 102, 0.3);
+        }
+
+        .btn-submit-wa:hover {
+            background: #1eb954;
+            transform: scale(1.02);
+            color: white;
+        }
+
+        /* ============================
+                 RESPONSIVE
+        ============================ */
+        @media (max-width: 991px) {
+            .package-title { font-size: 2.5rem; }
+            .content-box { padding-left: 0; margin-top: 50px; }
+            .main-wrapper { padding-top: 120px; }
+            .sticky-column { position: relative; top: 0; }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="bg-decoration"></div>
+
+    <!-- NAVBAR -->
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center" href="index.html">
+                <img src="logo.png" alt="Logo" style="height: 40px; margin-right: 10px;">
+                <span>MakinBisa.id</span>
+            </a>
+            <div class="ms-auto">
+                <a href="paket.html" class="btn btn-outline-primary rounded-pill px-4 fw-bold">Kembali ke Paket</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container main-wrapper">
+        <div class="row align-items-start">
+            
+            <!-- KOLOM KIRI: GAMBAR (STICKY) -->
+            <div class="col-lg-6 sticky-column" data-aos="fade-right">
+                <div class="image-container">
+                    <img src="https://via.placeholder.com/800x1000/6610f2/ffffff?text=The+Challenger" alt="The Challenger" class="img-main">
+                </div>
+            </div>
+
+            <!-- KOLOM KANAN: DETAIL & FORM -->
+            <div class="col-lg-6" data-aos="fade-left">
+                <div class="content-box">
+                    <span class="badge bg-primary text-white mb-3 px-3 py-2 rounded-pill fw-bold">BEST VALUE</span>
+                    <h1 class="package-title">The Challenger</h1>
+                    
+                    <div class="price-wrapper">
+                        <span class="price-amount">Rp 650.000</span> <small class="text-muted">/ Bulan</small>
+                    </div>
+
+                    <h5 class="fw-800 text-primary mb-3">Tentang Paket:</h5>
+                    <p class="lead text-muted mb-4">Level selanjutnya untuk kamu yang ingin lebih dari sekadar nilai bagus. Fokus pada pendalaman materi kompetisi, persiapan ujian masuk sekolah favorit, dan penguasaan konsep tingkat lanjut.</p>
+
+                    <h5 class="fw-800 text-primary mb-3">Fasilitas Premium:</h5>
+                    <div class="facility-item">
+                        <i class="bi bi-calendar-check"></i>
+                        <span>4x Pertemuan Tatap Muka / Minggu</span>
+                    </div>
+                    <div class="facility-item">
+                        <i class="bi bi-mortarboard"></i>
+                        <span>Persiapan Olimpiade & Ujian Mandiri</span>
+                    </div>
+                    <div class="facility-item">
+                        <i class="bi bi-laptop"></i>
+                        <span>Tryout Mingguan Berbasis Digital</span>
+                    </div>
+                    <div class="facility-item">
+                        <i class="bi bi-person-video3"></i>
+                        <span>Sesi Konsultasi Privat 1-on-1 (1x/bulan)</span>
+                    </div>
+                    <div class="facility-item">
+                        <i class="bi bi-journal-check"></i>
+                        <span>Akses Unlimited Library Soal Premium</span>
+                    </div>
+
+                    <!-- FORM PENDAFTARAN -->
+                    <div class="form-glass">
+                        <h3 class="fw-800 mb-4">Ambil Tantangan Ini</h3>
+                        
+                        <div class="input-group-custom">
+                            <label>NAMA LENGKAP</label>
+                            <input type="text" id="name" placeholder="Nama lengkap siswa">
+                        </div>
+
+                        <div class="input-group-custom">
+                            <label>EMAIL AKTIF</label>
+                            <input type="email" id="email" placeholder="contoh@gmail.com">
+                        </div>
+
+                        <div class="input-group-custom">
+                            <label>NOMOR WHATSAPP</label>
+                            <input type="text" id="phone" placeholder="08xxxxxxxxxx" oninput="this.value = this.value.replace(/[^0-9]/g, '')">
+                        </div>
+
+                        <button onclick="sendToWA()" class="btn-submit-wa">
+                            <i class="bi bi-whatsapp"></i> DAFTAR VIA WHATSAPP
+                        </button>
+                        <p class="text-center small mt-3 text-muted">Tim kami akan menghubungi Anda segera.</p>
+                    </div>
+
+                    <div style="height: 100px;"></div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({ duration: 1000, once: true });
+
+        function sendToWA() {
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const phone = document.getElementById('phone').value;
+            const targetPhone = "62895639068080";
+
+            if (name.trim() === "") { alert("Mohon isi namamu!"); return; }
+            if (!email.includes("@")) { alert("Format Email salah!"); return; }
+            if (phone.length < 10) { alert("Nomor telepon tidak valid!"); return; }
+
+            const message = `Halo Admin MakinBisa.id!\n` +
+                          `Saya ingin mendaftar paket *THE CHALLENGER*:\n\n` +
+                          `📌 *Nama:* ${name}\n` +
+                          `📌 *Email:* ${email}\n` +
+                          `📌 *No. WA:* ${phone}\n\n` +
+                          `Saya siap untuk tantangan baru! Mohon infonya.`;
+
+            window.open(`https://wa.me/${targetPhone}?text=${encodeURIComponent(message)}`, '_blank');
+        }
+    </script>
+</body>
+
+</html>

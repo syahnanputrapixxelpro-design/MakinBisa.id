@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tentang Kami - MakinBisa.id</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+
+<style>
+        /* =========================================
+           1. VARIABLE & GLOBAL RESET
+           ========================================= */
+        :root {
+            --primary: #0d6efd;
+            --secondary: #0dcaf0;
+            --dark-blue: #0a2558;
+            --gradient-bg: linear-gradient(135deg, #0a2558 0%, #0099ff 100%);
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: #444;
+            background-color: #ffffff;
+            overflow-x: hidden;
+        }
+
+        /* =========================================
+           2. NAVBAR STYLING
+           ========================================= */
+        .navbar {
+            background: white;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+            padding: 15px 0;
+            transition: 0.3s;
+        }
+
+        .navbar-brand {
+            font-weight: 700;
+            color: var(--dark-blue) !important;
+            font-size: 1.5rem;
+        }
+
+        .navbar-brand img {
+            height: 40px;
+            /* Ukuran Logo */
+            width: auto;
+            margin-right: 10px;
+        }
+
+        .nav-link {
+            font-weight: 500;
+            color: var(--dark-blue) !important;
+            margin: 0 10px;
+            transition: 0.3s;
+        }
+
+        .nav-link:hover {
+            color: var(--secondary) !important;
+        }
+
+        .btn-daftar {
+            background: var(--gradient-bg);
+            color: white !important;
+            padding: 10px 30px;
+            border-radius: 50px;
+            font-weight: 600;
+            box-shadow: 0 4px 15px rgba(13, 110, 253, 0.3);
+            transition: 0.3s;
+            border: none;
+        }
+
+        .btn-daftar:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(13, 110, 253, 0.4);
+        }
+
+
+        /* =========================================
+           3. PAGE HEADER (HERO ABOUT)
+           ========================================= */
+        .page-header {
+            padding: 180px 0 80px 0;
+            background: var(--gradient-bg);
+            color: white;
+            text-align: center;
+            clip-path: ellipse(100% 100% at 50% 0%);
+        }
+
+        /* =========================================
+           4. SECTION TITLE (JUDUL PER BAGIAN)
+           ========================================= */
+        .section-title h2 {
+            font-weight: 800;
+            color: var(--dark-blue);
+            position: relative;
+            display: inline-block;
+            padding-bottom: 15px;
+            margin-bottom: 30px;
+        }
+
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            width: 60px;
+            height: 4px;
+            background: var(--secondary);
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        /* =========================================
+           5. STATS SECTION (ANGKA KEBERHASILAN)
+           ========================================= */
+        .stats-section {
+            background: var(--dark-blue);
+            padding: 60px 0;
+            color: white;
+        }
+
+        .stat-card h2 {
+            font-size: 3rem;
+            font-weight: 800;
+            color: var(--secondary);
+        }
+
+        /* =========================================
+           6. VISI MISI BOX
+           ========================================= */
+        .vision-box {
+            background: #f8faff;
+            padding: 40px;
+            border-radius: 20px;
+            border-left: 5px solid var(--secondary);
+            height: 100%;
+            transition: 0.3s;
+        }
+
+        .vision-box:hover {
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        /* =========================================
+           7. MENTOR CARDS
+           ========================================= */
+        .mentor-card {
+            border: none;
+            border-radius: 20px;
+            overflow: hidden;
+            transition: 0.3s;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            text-align: center;
+            background: white;
+        }
+
+        .mentor-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+        }
+
+        .mentor-img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+        }
+
+        .mentor-info {
+            padding: 20px;
+        }
+
+        .mentor-info h5 {
+            color: var(--dark-blue);
+            font-weight: 700;
+            margin-bottom: 5px;
+        }
+
+        .mentor-info span {
+            color: var(--secondary);
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        /* =========================================
+           8. FOOTER STYLING
+           ========================================= */
+        footer {
+            background: var(--dark-blue);
+            color: white;
+            padding: 70px 0 30px 0;
+        }
+
+        footer h5 {
+            font-weight: 700;
+            color: var(--secondary);
+            margin-bottom: 20px;
+        }
+
+        footer a { 
+            color: #b0b0b0; 
+            display: block; 
+            margin-bottom: 10px; 
+            text-decoration: none; 
+            transition: 0.3s;
+        }
+
+        footer a:hover {
+            color: white;
+            padding-left: 5px;
+        }
+
+        /* =========================================
+           9. MOBILE RESPONSIVE
+           ========================================= */
+        @media (max-width: 991px) {
+            .page-header { 
+                padding: 140px 0 60px 0; 
+            }
+            .stat-card h2 {
+                font-size: 2rem;
+            }
+            .section-title {
+                text-align: center !important;
+            }
+            .section-title h2 {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAVBAR (Identik dengan Landing Page) -->
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center" href="index.html">
+                <img src="https://via.placeholder.com/40" alt="Logo" class="me-2">
+            </a>
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto align-items-center">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Beranda</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="about.html">Tentang</a></li>
+                    <li class="nav-item"><a class="nav-link" href="gallery.html">Galeri</a></li>
+                    <li class="nav-item"><a class="nav-link" href="paket.html">Paket</a></li>
+                    <li class="nav-item ms-lg-3">
+                        <a href="index.html#cta" class="btn btn-daftar">Daftar Sekarang</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HEADER HALAMAN -->
+    <header class="page-header">
+        <div class="container">
+            <h1 class="fw-800 display-4">Tentang Kami</h1>
+            <p class="lead">Mengenal lebih dekat lembaga bimbingan belajar terbaik untuk masa depanmu.</p>
+        </div>
+    </header>
+
+    <!-- SEJARAH & PENGENALAN -->
+    <section class="py-5">
+        <div class="container py-lg-5">
+            <div class="row align-items-center">
+                <div class="col-lg-6 mb-4 mb-lg-0">
+                    <img src="https://via.placeholder.com/600x400/0dcaf0/ffffff?text=Our+Story" alt="About Us" class="img-fluid rounded-4 shadow">
+                </div>
+                <div class="col-lg-6 ps-lg-5">
+                    <div class="section-title text-start">
+                        <h2 class="text-start">Membangun Generasi Juara</h2>
+                    </div>
+                    <p>MakinBisa.id didirikan dengan satu misi sederhana: <b>Membuat belajar menjadi lebih mudah dan terukur.</b> Kami percaya bahwa setiap siswa memiliki potensi besar yang hanya membutuhkan arahan yang tepat.</p>
+                    <p>Sejak tahun 2020, kami telah membantu ribuan siswa masuk ke PTN impian seperti UI, ITB, UGM, dan Unpad melalui metode <i>Adaptive Learning</i> yang menggabungkan kedalaman materi dengan strategi cepat menjawab soal.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- STATS (Mirip garansilulusptn.com) -->
+    <section class="stats-section text-center">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-md-3 col-6">
+                    <div class="stat-card">
+                        <h2>92%</h2>
+                        <p class="mb-0">Lulus PTN</p>
+                    </div>
+                </div>
+                <div class="col-md-3 col-6">
+                    <div class="stat-card">
+                        <h2>500+</h2>
+                        <p class="mb-0">Mentor Expert</p>
+                    </div>
+                </div>
+                <div class="col-md-3 col-6">
+                    <div class="stat-card">
+                        <h2>10k+</h2>
+                        <p class="mb-0">Alumni Berhasil</p>
+                    </div>
+                </div>
+                <div class="col-md-3 col-6">
+                    <div class="stat-card">
+                        <h2>24/7</h2>
+                        <p class="mb-0">Konsultasi</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- VISI & MISI -->
+    <section class="py-5 bg-light">
+        <div class="container py-lg-5">
+            <div class="row g-4">
+                <div class="col-md-6">
+                    <div class="vision-box">
+                        <h3 class="fw-bold text-primary mb-3"><i class="bi bi-eye-fill me-2"></i> Visi Kami</h3>
+                        <p>Menjadi platform bimbingan belajar nomor satu di Indonesia yang mencetak lulusan tidak hanya cerdas secara akademik, tapi juga memiliki mentalitas juara dan berkarakter.</p>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="vision-box">
+                        <h3 class="fw-bold text-primary mb-3"><i class="bi bi-bullseye me-2"></i> Misi Kami</h3>
+                        <ul class="ps-3">
+                            <li class="mb-2">Menyediakan akses pendidikan berkualitas dengan biaya terjangkau.</li>
+                            <li class="mb-2">Mengembangkan metode belajar yang adaptif terhadap perubahan kurikulum.</li>
+                            <li class="mb-2">Mendampingi siswa secara personal hingga mencapai kampus impian.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TIM PENGAJAR / MENTOR -->
+    <section class="py-5">
+        <div class="container py-lg-5">
+            <div class="section-title text-center">
+                <h2>Mentor Terbaik Kami</h2>
+                <p>Belajar langsung dari pakarnya yang merupakan lulusan universitas top dunia dan nasional.</p>
+            </div>
+            <div class="row g-4">
+                <div class="col-lg-3 col-md-6">
+                    <div class="mentor-card">
+                        <img src="https://via.placeholder.com/300x400/0a2558/ffffff?text=Mentor+1" class="mentor-img" alt="Mentor">
+                        <div class="mentor-info">
+                            <h5>Andi Pratama</h5>
+                            <span>Lulusan Teknik UI</span>
+                            <p class="small text-muted mt-2">Spesialis Matematika & Fisika</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="mentor-card">
+                        <img src="https://via.placeholder.com/300x400/0dcaf0/ffffff?text=Mentor+2" class="mentor-img" alt="Mentor">
+                        <div class="mentor-info">
+                            <h5>Siti Aminah</h5>
+                            <span>Lulusan Sastra Inggris ITB</span>
+                            <p class="small text-muted mt-2">Spesialis Literasi Bahasa</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="mentor-card">
+                        <img src="https://via.placeholder.com/300x400/0a2558/ffffff?text=Mentor+3" class="mentor-img" alt="Mentor">
+                        <div class="mentor-info">
+                            <h5>Budi Santoso</h5>
+                            <span>Lulusan Kedokteran UGM</span>
+                            <p class="small text-muted mt-2">Spesialis Biologi & Kimia</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="mentor-card">
+                        <img src="https://via.placeholder.com/300x400/0dcaf0/ffffff?text=Mentor+4" class="mentor-img" alt="Mentor">
+                        <div class="mentor-info">
+                            <h5>Rina Wijaya</h5>
+                            <span>Lulusan Ekonomi Unpad</span>
+                            <p class="small text-muted mt-2">Spesialis Penalaran Umum</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER (Identik dengan Landing Page) -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <h5>MakinBisa.id</h5>
+                    <p class="small text-white-50">Platform edukasi terdepan yang fokus pada pengembangan akademik dan karakter siswa Indonesia.</p>
+                </div>
+                <div class="col-lg-2 col-md-6 mb-4">
+                    <h5>Menu</h5>
+                    <a href="index.html">Beranda</a>
+                    <a href="about.html">Tentang Kami</a>
+                    <a href="index.html#gallery">Galeri</a>
+                    <a href="index.html#faq">FAQ</a>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <h5>Hubungi Kami</h5>
+                    <a href="#"><i class="bi bi-whatsapp me-2"></i> 0812-3456-7890</a>
+                    <a href="#"><i class="bi bi-envelope me-2"></i> halo@makinbisa.id</a>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <h5>Ikuti Kami</h5>
+                    <div class="d-flex gap-3">
+                        <a href="#" class="fs-4 text-white"><i class="bi bi-instagram"></i></a>
+                        <a href="#" class="fs-4 text-white"><i class="bi bi-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+            <hr style="border-color: rgba(255,255,255,0.1);">
+            <div class="text-center small text-white-50">
+                &copy; 2024 MakinBisa.id. All Rights Reserved.
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
