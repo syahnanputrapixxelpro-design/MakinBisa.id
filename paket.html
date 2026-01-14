@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Paket Belajar - MakinBisa.id</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+
+    <style>
+        /* =========================================
+           1. VARIABLE & GLOBAL THEME
+           ========================================= */
+        :root {
+            --primary: #0d6efd;
+            --secondary: #0dcaf0;
+            --dark-blue: #0a2558;
+            --premium-gold: #ffc107;
+            --gradient-main: linear-gradient(135deg, #0a2558 0%, #0099ff 100%);
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: #f0f4f8;
+            color: #444;
+            overflow-x: hidden;
+        }
+
+        /* Background aksen lingkaran abstrak di belakang */
+        .bg-circle {
+            position: fixed;
+            width: 500px;
+            height: 500px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(13, 202, 240, 0.1) 0%, transparent 70%);
+            z-index: -1;
+        }
+
+        /* =========================================
+           2. NAVBAR (IDENTIK INDEX.HTML)
+           ========================================= */
+        .navbar {
+            background: white;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+            padding: 15px 0;
+            transition: 0.3s;
+        }
+
+        .navbar-brand {
+            font-weight: 700;
+            color: var(--dark-blue) !important;
+            font-size: 1.5rem;
+        }
+
+        .navbar-brand img {
+            height: 40px;
+            margin-right: 10px;
+        }
+
+        .nav-link {
+            font-weight: 500;
+            color: var(--dark-blue) !important;
+            margin: 0 10px;
+        }
+
+        .nav-link:hover,
+        .nav-link.active {
+            color: var(--secondary) !important;
+        }
+
+        .btn-daftar {
+            background: var(--gradient-main);
+            color: white !important;
+            padding: 10px 30px;
+            border-radius: 50px;
+            font-weight: 600;
+            border: none;
+        }
+
+        /* =========================================
+           3. HERO SECTION PAKET
+           ========================================= */
+        .paket-header {
+            padding: 180px 0 100px 0;
+            background: var(--gradient-main);
+            clip-path: polygon(0 0, 100% 0, 100% 90%, 0% 100%);
+            color: white;
+            text-align: center;
+        }
+
+        .paket-header h1 {
+            font-weight: 800;
+            font-size: 3.5rem;
+        }
+
+        /* =========================================
+           4. CARD PAKET (KREATIF - GLASSMORPHISM)
+           ========================================= */
+        .pricing-section {
+            margin-top: -80px;
+            padding-bottom: 100px;
+        }
+
+        .card-plan {
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 40px;
+            padding: 50px 40px;
+            text-align: center;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            height: 100%;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.05);
+        }
+
+        .card-plan:hover {
+            transform: translateY(-20px);
+            box-shadow: 0 40px 80px rgba(10, 37, 88, 0.15);
+            background: white;
+        }
+
+        /* Ikon Paket yang melayang */
+        .plan-icon {
+            width: 100px;
+            height: 100px;
+            background: #f8faff;
+            border-radius: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 30px;
+            font-size: 2.5rem;
+            color: var(--secondary);
+            box-shadow: inset 0 5px 10px rgba(0, 0, 0, 0.02);
+            transition: 0.3s;
+        }
+
+        .card-plan:hover .plan-icon {
+            background: var(--secondary);
+            color: white;
+            transform: rotate(10deg);
+        }
+
+        .plan-name {
+            font-weight: 800;
+            color: var(--dark-blue);
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+        }
+
+        .plan-price {
+            font-size: 2.2rem;
+            font-weight: 800;
+            color: var(--primary);
+            margin-bottom: 30px;
+        }
+
+        .plan-price span {
+            font-size: 1rem;
+            color: #888;
+            font-weight: 400;
+        }
+
+        .plan-features {
+            list-style: none;
+            padding: 0;
+            margin-bottom: 40px;
+            text-align: left;
+        }
+
+        .plan-features li {
+            margin-bottom: 15px;
+            font-size: 0.95rem;
+            display: flex;
+            align-items: center;
+        }
+
+        .plan-features i {
+            color: #20c997;
+            margin-right: 12px;
+            font-size: 1.2rem;
+        }
+
+        /* Button khusus di dalam kartu */
+        .btn-plan {
+            padding: 15px 35px;
+            border-radius: 50px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: 0.3s;
+            width: 100%;
+        }
+
+        /* Efek Paket Terpopuler (Tengah) */
+        .card-featured {
+            border: 2px solid var(--secondary);
+            transform: scale(1.05);
+            z-index: 2;
+            background: white;
+        }
+
+        .card-featured .badge-featured {
+            position: absolute;
+            top: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--secondary);
+            color: white;
+            padding: 8px 25px;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 0.8rem;
+            box-shadow: 0 10px 20px rgba(13, 202, 240, 0.3);
+        }
+
+        /* =========================================
+           5. FOOTER (IDENTIK INDEX.HTML)
+           ========================================= */
+        footer {
+            background: var(--dark-blue);
+            color: white;
+            padding: 70px 0 30px 0;
+        }
+
+        footer h5 {
+            font-weight: 700;
+            color: var(--secondary);
+            margin-bottom: 20px;
+        }
+
+        footer a {
+            color: #b0b0b0;
+            display: block;
+            margin-bottom: 10px;
+            text-decoration: none;
+        }
+
+        /* =========================================
+           6. MOBILE OPTIMIZATION
+           ========================================= */
+        @media (max-width: 991px) {
+            .card-featured {
+                transform: scale(1);
+                margin: 30px 0;
+            }
+
+            .paket-header h1 {
+                font-size: 2.5rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Aksen Background -->
+    <div class="bg-circle" style="top: 10%; left: -5%;"></div>
+    <div class="bg-circle" style="bottom: 10%; right: -5%;"></div>
+
+    <!-- NAVBAR (PERSIS INDEX.HTML) -->
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center" href="index.html">
+                <img src="logo.png" alt="Logo">
+            </a>
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto align-items-center">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Beranda</a></li>
+                    <li class="nav-item"><a class="nav-link" href="about.html">Tentang</a></li>
+                    <li class="nav-item"><a class="nav-link" href="gallery.html">Galeri</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="paket.html">Paket</a></li>
+                    <li class="nav-item"><a class="nav-link" href="Blog.html">Blog</a></li>
+                    <li class="nav-item ms-lg-3">
+                        <a href="index.html#cta" class="btn btn-daftar">Daftar Sekarang</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HEADER PAKET -->
+    <header class="paket-header">
+        <div class="container">
+            <h1 class="mb-3">Investasi Masa Depan</h1>
+            <p class="lead opacity-75">Pilih paket belajar yang paling sesuai dengan ambisi dan targetmu.</p>
+        </div>
+    </header>
+
+    <!-- SECTION PRICING -->
+    <section class="pricing-section">
+        <div class="container">
+            <div class="row g-4 align-items-center">
+
+                <!-- Paket 1: Level Dasar -->
+                <div class="col-lg-4">
+                    <div class="card-plan">
+                        <div class="plan-icon"><i class="bi bi-rocket-takeoff"></i></div>
+                        <div class="plan-name">The Beginner</div>
+                        <p class="small text-muted mb-4">Pemantapan materi sekolah & tugas harian.</p>
+                        <div class="plan-price">Rp 450k<span>/bln</span></div>
+                        <ul class="plan-features">
+                            <li><i class="bi bi-patch-check-fill"></i> 3x Pertemuan / Minggu</li>
+                            <li><i class="bi bi-patch-check-fill"></i> Modul Belajar Digital</li>
+                            <li><i class="bi bi-patch-check-fill"></i> Konsultasi PR 24/7</li>
+                            <li><i class="bi bi-patch-check-fill"></i> Mentor Friendly</li>
+                        </ul>
+                        <a href="paket1.html" class="btn btn-outline-primary btn-plan">Pilih Paket</a>
+                    </div>
+                </div>
+
+                <!-- Paket 2: Level Menengah (Featured) -->
+                <div class="col-lg-4">
+                    <div class="card-plan card-featured">
+                        <div class="badge-featured">PALING POPULER</div>
+                        <div class="plan-icon" style="background: rgba(13, 202, 240, 0.1);"><i
+                                class="bi bi-shield-check"></i></div>
+                        <div class="plan-name">The Challenger</div>
+                        <p class="small text-muted mb-4">Persiapan Intensif tembus PTN Favorit.</p>
+                        <div class="plan-price">Rp 850k<span>/bln</span></div>
+                        <ul class="plan-features">
+                            <li><i class="bi bi-patch-check-fill"></i> 5x Pertemuan / Minggu</li>
+                            <li><i class="bi bi-patch-check-fill"></i> Try Out CBT Berkalas</li>
+                            <li><i class="bi bi-patch-check-fill"></i> Bank Soal UTBK Terbaru</li>
+                            <li><i class="bi bi-patch-check-fill"></i> Konsultasi Jurusan</li>
+                            <li><i class="bi bi-patch-check-fill"></i> Kelas Tips & Trik Cepat</li>
+                        </ul>
+                        <a href="#" class="btn btn-primary btn-plan shadow">Ambil Sekarang</a>
+                    </div>
+                </div>
+
+                <!-- Paket 3: Level Expert -->
+                <div class="col-lg-4">
+                    <div class="card-plan">
+                        <div class="plan-icon"><i class="bi bi-trophy"></i></div>
+                        <div class="plan-name">The Conqueror</div>
+                        <p class="small text-muted mb-4">Program Karantina Garansi Lulus PTN.</p>
+                        <div class="plan-price">Rp 2.5jt<span>/bln</span></div>
+                        <ul class="plan-features">
+                            <li><i class="bi bi-patch-check-fill"></i> Belajar Setiap Hari</li>
+                            <li><i class="bi bi-patch-check-fill"></i> Personal Mentor Khusus</li>
+                            <li><i class="bi bi-patch-check-fill"></i> Simulasi Real UTBK tiap Minggu</li>
+                            <li><i class="bi bi-patch-check-fill"></i> Garansi Uang Kembali*</li>
+                        </ul>
+                        <a href="#" class="btn btn-dark btn-plan">Daftar Karantina</a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER (PERSIS INDEX.HTML) -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <h5>MakinBisa.id</h5>
+                    <p class="small text-white-50">Platform edukasi terdepan yang fokus pada pengembangan akademik dan
+                        karakter siswa Indonesia.</p>
+                </div>
+                <div class="col-lg-2 col-md-6 mb-4">
+                    <h5>Menu</h5>
+                    <a href="index.html">Beranda</a>
+                    <a href="about.html">Tentang</a>
+                    <a href="gallery.html">Galeri</a>
+                    <a href="paket.html">Paket</a>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <h5>Hubungi Kami</h5>
+                    <a href="#"><i class="bi bi-whatsapp me-2"></i> 0812-3456-7890</a>
+                    <a href="#"><i class="bi bi-geo-alt me-2"></i> Jakarta Selatan</a>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <h5>Ikuti Kami</h5>
+                    <div class="d-flex gap-3">
+                        <a href="#" class="fs-4 text-white"><i class="bi bi-instagram"></i></a>
+                        <a href="#" class="fs-4 text-white"><i class="bi bi-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+            <hr style="border-color: rgba(255,255,255,0.1);">
+            <div class="text-center small text-white-50">
+                &copy; 2024 MakinBisa.id. All Rights Reserved.
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
