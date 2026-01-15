@@ -4,7 +4,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Blog & Artikel - MakinBisa.id</title>
+    
+    <title>Blog & Artikel - MakinBisa.id | Tips Belajar & Info Pendidikan</title>
+    <meta name="description" content="Kumpulan artikel terbaru seputar tips belajar UTBK, informasi jurusan kuliah, beasiswa, dan parenting pendidikan di MakinBisa.id.">
+    <meta name="keywords" content="Blog Pendidikan, Tips UTBK, Info Jurusan, Beasiswa 2024, MakinBisa, Artikel Parenting">
+    <meta name="author" content="MakinBisa.id">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://makinbisa.id/blog.html">
+
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://makinbisa.id/blog.html">
+    <meta property="og:title" content="Blog & Artikel Pendidikan - MakinBisa.id">
+    <meta property="og:description" content="Dapatkan tips belajar terbaik dan info pendidikan terkini hanya di Blog MakinBisa.id.">
+    <meta property="og:image" content="assets/img/Logo.webp">
+
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:title" content="Blog & Artikel Pendidikan - MakinBisa.id">
+    <meta property="twitter:description" content="Dapatkan tips belajar terbaik dan info pendidikan terkini hanya di Blog MakinBisa.id.">
+
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/img/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/img/favicon-16x16.png">
+    <link rel="manifest" href="site.webmanifest">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdn.jsdelivr.net">
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
@@ -15,7 +40,7 @@
         :root {
             --primary: #0d6efd;
             --secondary: #0dcaf0;
-            --dark-blue: #0a2558;
+            --dark-blue: #194aa5;
             --gradient-bg: linear-gradient(135deg, #0a2558 0%, #0099ff 100%);
             --body-bg: #ffffff;
             --section-padding: 100px 0;
@@ -27,11 +52,12 @@
             color: #444;
             background-color: #f9fbfd; /* Background sedikit abu agar kartu blog menonjol */
             overflow-x: hidden;
+            scroll-behavior: smooth;
         }
 
         a { text-decoration: none; }
 
-        /* === NAVBAR STYLING (COPY DARI INDEX) === */
+        /* === NAVBAR STYLING (KONSISTEN) === */
         .navbar {
             background: white;
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
@@ -51,19 +77,24 @@
             transition: 0.3s;
         }
         .nav-link:hover, .nav-link.active { color: var(--secondary) !important; }
-        .btn-daftar {
+        
+        /* Tombol Navbar (Kecil & Proporsional - UPDATE) */
+        .btn-nav-small {
             background: var(--gradient-bg);
             color: white !important;
-            padding: 10px 30px;
+            padding: 8px 25px;
             border-radius: 50px;
             font-weight: 600;
-            box-shadow: 0 4px 15px rgba(13, 110, 253, 0.3);
             border: none;
+            font-size: 0.9rem;
             transition: 0.3s;
+            text-decoration: none;
         }
-        .btn-daftar:hover {
+
+        .btn-nav-small:hover {
             transform: translateY(-2px);
-            box-shadow: 0 8px 20px rgba(13, 110, 253, 0.4);
+            box-shadow: 0 5px 15px rgba(13, 110, 253, 0.3);
+            color: white !important;
         }
 
         /* === BLOG HEADER & SEARCH === */
@@ -182,8 +213,71 @@
             margin-top: 80px;
         }
         footer h5 { font-weight: 700; margin-bottom: 20px; color: var(--secondary); }
-        footer a { color: #b0b0b0; display: block; margin-bottom: 10px; transition: 0.3s; }
+        footer a { color: #b0b0b0; display: block; margin-bottom: 10px; transition: 0.3s; text-decoration: none; }
         footer a:hover { color: white; padding-left: 5px; }
+
+        /* === FLOATING BUTTONS (NEW) === */
+        .floating-container {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 9999;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .btn-float {
+            width: 55px;
+            height: 55px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            transition: all 0.3s ease;
+            text-decoration: none !important;
+        }
+
+        /* WA Style */
+        .btn-float-wa {
+            background-color: #25D366;
+            color: white;
+            animation: pulse-wa 2s infinite;
+        }
+        
+        .btn-float-wa:hover {
+            background-color: #20bd5a;
+            transform: scale(1.1);
+            color: white;
+        }
+
+        /* Back Top Style */
+        .btn-float-top {
+            background: var(--gradient-bg);
+            color: white;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(20px);
+        }
+
+        .btn-float-top.show {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .btn-float-top:hover {
+            transform: translateY(-5px);
+            color: white;
+        }
+
+        @keyframes pulse-wa {
+            0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
+            70% { box-shadow: 0 0 0 10px rgba(37, 211, 102, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+        }
 
         /* === MOBILE RESPONSIVE === */
         @media (max-width: 991px) {
@@ -195,8 +289,10 @@
                 margin-top: 15px;
             }
             .nav-link { margin: 10px 0; text-align: center; }
-            .btn-daftar { display: block; width: 100%; text-align: center; margin-top: 10px; }
+            .btn-nav-small { display: block; width: 100%; text-align: center; margin-top: 10px; }
             .blog-header { padding: 120px 0 60px 0; border-radius: 0 0 30px 30px; }
+            .floating-container { bottom: 20px; right: 20px; }
+            .btn-float { width: 50px; height: 50px; font-size: 24px; }
         }
     </style>
 </head>
@@ -206,7 +302,7 @@
     <nav class="navbar navbar-expand-lg fixed-top">
         <div class="container">
             <a class="navbar-brand d-flex align-items-center" href="index.html">
-                <img src="logo.png" alt="Logo">
+                <img src="assets/img/Logo.webp" alt="Logo">
             </a>
             <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
@@ -217,8 +313,9 @@
                     <li class="nav-item"><a class="nav-link" href="about.html">Tentang</a></li>
                     <li class="nav-item"><a class="nav-link" href="gallery.html">Galeri</a></li>
                     <li class="nav-item"><a class="nav-link" href="paket.html">Paket</a></li>
-                    <li class="nav-item"><a class="nav-link active" href="blog.html">Blog</a></li> <li class="nav-item ms-lg-3">
-                        <a href="index.html#cta" class="btn btn-daftar">Daftar Sekarang</a>
+                    <li class="nav-item"><a class="nav-link active" href="Blog.html">Blog</a></li>
+                    <li class="nav-item ms-lg-3">
+                        <a href="daftar.html" class="btn btn-nav-small">Daftar Sekarang</a>
                     </li>
                 </ul>
             </div>
@@ -242,72 +339,72 @@
             
             <div class="col-md-6 col-lg-4 blog-item">
                 <article class="blog-card">
-                    <img src="https://via.placeholder.com/400x250/0d6efd/ffffff?text=Tips+Belajar" class="blog-thumb" alt="Blog 1">
+                    <img src="assets/img/kelas1.webp" class="blog-thumb" alt="Tips Belajar UTBK" loading="lazy">
                     <div class="blog-body">
                         <span class="blog-category">Tips Belajar</span>
                         <h3 class="blog-title">5 Cara Efektif Mengatur Waktu Belajar untuk UTBK</h3>
                         <p class="blog-excerpt">Menghadapi UTBK butuh strategi waktu yang tepat. Simak metode Pomodoro yang bisa kamu terapkan...</p>
-                        <a href="#" class="blog-link">Baca Selengkapnya <i class="bi bi-arrow-right ms-1"></i></a>
+                        <a href="blog1.html" class="blog-link">Baca Selengkapnya <i class="bi bi-arrow-right ms-1"></i></a>
                     </div>
                 </article>
             </div>
 
             <div class="col-md-6 col-lg-4 blog-item">
                 <article class="blog-card">
-                    <img src="https://via.placeholder.com/400x250/0dcaf0/ffffff?text=Info+Jurusan" class="blog-thumb" alt="Blog 2">
+                    <img src="assets/img/kelas2.webp" class="blog-thumb" alt="Jurusan IT vs SI" loading="lazy">
                     <div class="blog-body">
                         <span class="blog-category">Info Jurusan</span>
                         <h3 class="blog-title">Mengenal Jurusan Teknik Informatika vs Sistem Informasi</h3>
                         <p class="blog-excerpt">Masih bingung bedanya TI dan SI? Jangan sampai salah pilih jurusan! Pelajari perbedaan mata kuliahnya di sini.</p>
-                        <a href="#" class="blog-link">Baca Selengkapnya <i class="bi bi-arrow-right ms-1"></i></a>
+                        <a href="blog2.html" class="blog-link">Baca Selengkapnya <i class="bi bi-arrow-right ms-1"></i></a>
                     </div>
                 </article>
             </div>
 
             <div class="col-md-6 col-lg-4 blog-item">
                 <article class="blog-card">
-                    <img src="https://via.placeholder.com/400x250/0a2558/ffffff?text=Beasiswa" class="blog-thumb" alt="Blog 3">
+                    <img src="assets/img/kelas3.webp" class="blog-thumb" alt="Beasiswa Luar Negeri" loading="lazy">
                     <div class="blog-body">
                         <span class="blog-category">Beasiswa</span>
                         <h3 class="blog-title">Daftar Beasiswa S1 Luar Negeri Full Cover 2024</h3>
                         <p class="blog-excerpt">Ingin kuliah gratis di luar negeri? Cek daftar beasiswa pemerintah yang sedang buka pendaftaran bulan ini.</p>
-                        <a href="#" class="blog-link">Baca Selengkapnya <i class="bi bi-arrow-right ms-1"></i></a>
+                        <a href="blog3.html" class="blog-link">Baca Selengkapnya <i class="bi bi-arrow-right ms-1"></i></a>
                     </div>
                 </article>
             </div>
 
             <div class="col-md-6 col-lg-4 blog-item">
                 <article class="blog-card">
-                    <img src="https://via.placeholder.com/400x250/6610f2/ffffff?text=Mental+Health" class="blog-thumb" alt="Blog 4">
+                    <img src="assets/img/kelas4.webp" class="blog-thumb" alt="Kesehatan Mental Siswa" loading="lazy">
                     <div class="blog-body">
                         <span class="blog-category">Kesehatan Mental</span>
                         <h3 class="blog-title">Mengatasi Burnout Saat Persiapan Ujian Nasional</h3>
                         <p class="blog-excerpt">Lelah mental saat belajar itu wajar. Ketahui tanda-tanda burnout dan cara mengatasinya agar tetap waras.</p>
-                        <a href="#" class="blog-link">Baca Selengkapnya <i class="bi bi-arrow-right ms-1"></i></a>
+                        <a href="blog4.html" class="blog-link">Baca Selengkapnya <i class="bi bi-arrow-right ms-1"></i></a>
                     </div>
                 </article>
             </div>
 
             <div class="col-md-6 col-lg-4 blog-item">
                 <article class="blog-card">
-                    <img src="https://via.placeholder.com/400x250/20c997/ffffff?text=Try+Out" class="blog-thumb" alt="Blog 5">
+                    <img src="assets/img/kelas5.webp" class="blog-thumb" alt="Event Try Out Akbar" loading="lazy">
                     <div class="blog-body">
                         <span class="blog-category">Event</span>
                         <h3 class="blog-title">Jadwal Try Out Akbar MakinBisa.id Bulan Ini</h3>
                         <p class="blog-excerpt">Ukur kemampuanmu dengan mengikuti Try Out serentak seluruh Indonesia. Ada hadiah menarik untuk nilai tertinggi!</p>
-                        <a href="#" class="blog-link">Baca Selengkapnya <i class="bi bi-arrow-right ms-1"></i></a>
+                        <a href="blog5.html" class="blog-link">Baca Selengkapnya <i class="bi bi-arrow-right ms-1"></i></a>
                     </div>
                 </article>
             </div>
 
             <div class="col-md-6 col-lg-4 blog-item">
                 <article class="blog-card">
-                    <img src="https://via.placeholder.com/400x250/dc3545/ffffff?text=Orang+Tua" class="blog-thumb" alt="Blog 6">
+                    <img src="assets/img/kelas6.webp" class="blog-thumb" alt="Tips Parenting Pendidikan" loading="lazy">
                     <div class="blog-body">
                         <span class="blog-category">Parenting</span>
                         <h3 class="blog-title">Peran Orang Tua dalam Mendukung Anak Masuk PTN</h3>
                         <p class="blog-excerpt">Dukungan emosional orang tua sangat berpengaruh pada tingkat kelulusan anak. Ini tips komunikasi yang baik.</p>
-                        <a href="#" class="blog-link">Baca Selengkapnya <i class="bi bi-arrow-right ms-1"></i></a>
+                        <a href="blog6.html" class="blog-link">Baca Selengkapnya <i class="bi bi-arrow-right ms-1"></i></a>
                     </div>
                 </article>
             </div>
@@ -320,16 +417,16 @@
             <p>Coba gunakan kata kunci lain.</p>
         </div>
 
-        <nav aria-label="Page navigation" class="mt-5">
-            <ul class="pagination justify-content-center">
-                <li class="page-item disabled"><a class="page-link" href="#">Prev</a></li>
-                <li class="page-item active"><a class="page-link" href="#">1</a></li>
-                <li class="page-item"><a class="page-link" href="#">2</a></li>
-                <li class="page-item"><a class="page-link" href="#">3</a></li>
-                <li class="page-item"><a class="page-link" href="#">Next</a></li>
-            </ul>
-        </nav>
     </section>
+
+    <div class="floating-container">
+        <a href="#" class="btn-float btn-float-top" id="btnBackToTop" title="Kembali ke Atas" aria-label="Back to Top">
+            <i class="bi bi-arrow-up"></i>
+        </a>
+        <a href="https://wa.me/62895639068080" target="_blank" class="btn-float btn-float-wa" title="Chat WhatsApp" aria-label="Chat WhatsApp">
+            <i class="bi bi-whatsapp"></i>
+        </a>
+    </div>
 
     <footer>
         <div class="container">
@@ -347,16 +444,16 @@
                 </div>
                 <div class="col-lg-3 col-md-6 mb-4">
                     <h5>Hubungi Kami</h5>
-                    <a href="#"><i class="bi bi-whatsapp me-2"></i> 0812-3456-7890</a>
-                    <a href="#"><i class="bi bi-envelope me-2"></i> halo@makinbisa.id</a>
+                    <a href="https://wa.me/62895639068080"><i class="bi bi-whatsapp me-2"></i> 0812-3456-7890</a>
+                    <a href="mailto:halo@makinbisa.id"><i class="bi bi-envelope me-2"></i> halo@makinbisa.id</a>
                     <a href="#"><i class="bi bi-geo-alt me-2"></i> Jakarta Selatan</a>
                 </div>
                 <div class="col-lg-3 col-md-6 mb-4">
                     <h5>Ikuti Kami</h5>
                     <div class="d-flex gap-3 justify-content-center justify-content-lg-start">
-                        <a href="#" class="fs-4 text-white"><i class="bi bi-instagram"></i></a>
-                        <a href="#" class="fs-4 text-white"><i class="bi bi-youtube"></i></a>
-                        <a href="#" class="fs-4 text-white"><i class="bi bi-tiktok"></i></a>
+                        <a href="#" class="fs-4 text-white" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+                        <a href="#" class="fs-4 text-white" aria-label="YouTube"><i class="bi bi-youtube"></i></a>
+                        <a href="#" class="fs-4 text-white" aria-label="TikTok"><i class="bi bi-tiktok"></i></a>
                     </div>
                 </div>
             </div>
@@ -370,36 +467,27 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
     <script>
-        // Ambil elemen input
+        // === SCRIPT FILTER BLOG ===
         const searchInput = document.getElementById('searchInput');
-        
-        // Tambahkan Event Listener saat mengetik
         searchInput.addEventListener('keyup', filterBlog);
 
         function filterBlog() {
-            // Ambil value dari input dan ubah ke huruf kecil
             let filterValue = searchInput.value.toLowerCase();
-            
-            // Ambil semua item blog
             let blogItems = document.querySelectorAll('.blog-item');
             let hasResult = false;
 
-            // Looping untuk cek setiap artikel
             blogItems.forEach(function(item) {
-                // Ambil judul artikel di dalam kartu
                 let title = item.querySelector('.blog-title').innerText.toLowerCase();
                 let category = item.querySelector('.blog-category').innerText.toLowerCase();
 
-                // Cek apakah judul ATAU kategori mengandung kata kunci
                 if (title.includes(filterValue) || category.includes(filterValue)) {
-                    item.style.display = ""; // Tampilkan
+                    item.style.display = ""; 
                     hasResult = true;
                 } else {
-                    item.style.display = "none"; // Sembunyikan
+                    item.style.display = "none"; 
                 }
             });
 
-            // Tampilkan pesan "Tidak Ditemukan" jika tidak ada hasil
             let noResultDiv = document.getElementById('noResult');
             if (!hasResult) {
                 noResultDiv.classList.remove('d-none');
@@ -407,6 +495,29 @@
                 noResultDiv.classList.add('d-none');
             }
         }
+
+        // === SCRIPT BACK TO TOP ===
+        const btnBackToTop = document.getElementById('btnBackToTop');
+
+        window.onscroll = function() {
+            scrollFunction();
+        };
+
+        function scrollFunction() {
+            if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+                btnBackToTop.classList.add('show');
+            } else {
+                btnBackToTop.classList.remove('show');
+            }
+        }
+
+        btnBackToTop.addEventListener('click', function(e) {
+            e.preventDefault();
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
     </script>
 </body>
 </html>

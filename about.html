@@ -4,14 +4,38 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tentang Kami - MakinBisa.id</title>
+    
+    <title>Tentang Kami - MakinBisa.id | Lembaga Bimbingan Belajar Terpercaya</title>
+    <meta name="description" content="Mengenal MakinBisa.id, platform bimbel terbaik dengan metode Adaptive Learning. Kami mencetak generasi juara lolos PTN favorit bersama mentor expert.">
+    <meta name="keywords" content="Tentang MakinBisa, Profil Bimbel, Mentor UTBK, Visi Misi MakinBisa, Bimbel Online Terbaik">
+    <meta name="author" content="MakinBisa.id">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://makinbisa.id/about.html">
+
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://makinbisa.id/about.html">
+    <meta property="og:title" content="Tentang Kami - MakinBisa.id">
+    <meta property="og:description" content="Mengenal lebih dekat lembaga bimbingan belajar terbaik untuk masa depanmu.">
+    <meta property="og:image" content="assets/img/Logo.webp">
+
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:title" content="Tentang Kami - MakinBisa.id">
+    <meta property="twitter:description" content="Mengenal lebih dekat lembaga bimbingan belajar terbaik untuk masa depanmu.">
+
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/img/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/img/favicon-16x16.png">
+    <link rel="manifest" href="site.webmanifest">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdn.jsdelivr.net">
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
 
-<style>
+    <style>
         /* =========================================
            1. VARIABLE & GLOBAL RESET
            ========================================= */
@@ -27,6 +51,7 @@
             color: #444;
             background-color: #ffffff;
             overflow-x: hidden;
+            scroll-behavior: smooth;
         }
 
         /* =========================================
@@ -47,7 +72,6 @@
 
         .navbar-brand img {
             height: 40px;
-            /* Ukuran Logo */
             width: auto;
             margin-right: 10px;
         }
@@ -59,26 +83,28 @@
             transition: 0.3s;
         }
 
-        .nav-link:hover {
+        .nav-link:hover, .nav-link.active {
             color: var(--secondary) !important;
         }
 
-        .btn-daftar {
+        /* Tombol Navbar */
+        .btn-nav-small {
             background: var(--gradient-bg);
             color: white !important;
-            padding: 10px 30px;
+            padding: 8px 25px; 
             border-radius: 50px;
             font-weight: 600;
-            box-shadow: 0 4px 15px rgba(13, 110, 253, 0.3);
-            transition: 0.3s;
             border: none;
+            font-size: 0.9rem; 
+            transition: 0.3s;
+            text-decoration: none;
         }
 
-        .btn-daftar:hover {
+        .btn-nav-small:hover {
             transform: translateY(-2px);
-            box-shadow: 0 8px 20px rgba(13, 110, 253, 0.4);
+            box-shadow: 0 5px 15px rgba(13, 110, 253, 0.3);
+            color: white !important;
         }
-
 
         /* =========================================
            3. PAGE HEADER (HERO ABOUT)
@@ -142,7 +168,7 @@
         }
 
         .vision-box:hover {
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
         }
 
         /* =========================================
@@ -153,14 +179,14 @@
             border-radius: 20px;
             overflow: hidden;
             transition: 0.3s;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
             text-align: center;
             background: white;
         }
 
         .mentor-card:hover {
             transform: translateY(-10px);
-            box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
         }
 
         .mentor-img {
@@ -186,7 +212,36 @@
         }
 
         /* =========================================
-           8. FOOTER STYLING
+           8. CTA SECTION
+           ========================================= */
+        .cta-section {
+            background: var(--gradient-bg);
+            padding: 80px 0;
+            color: white;
+            text-align: center;
+        }
+
+        .btn-cta-light {
+            background: white;
+            color: var(--primary);
+            font-weight: 700;
+            padding: 15px 40px;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            margin-top: 20px;
+            transition: 0.3s;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-cta-light:hover {
+            background: #f0f0f0;
+            color: var(--dark-blue);
+            transform: scale(1.05);
+        }
+
+        /* =========================================
+           9. FOOTER STYLING
            ========================================= */
         footer {
             background: var(--dark-blue);
@@ -200,11 +255,11 @@
             margin-bottom: 20px;
         }
 
-        footer a { 
-            color: #b0b0b0; 
-            display: block; 
-            margin-bottom: 10px; 
-            text-decoration: none; 
+        footer a {
+            color: #b0b0b0;
+            display: block;
+            margin-bottom: 10px;
+            text-decoration: none;
             transition: 0.3s;
         }
 
@@ -214,32 +269,100 @@
         }
 
         /* =========================================
-           9. MOBILE RESPONSIVE
+           10. FLOATING BUTTONS (NEW)
+           ========================================= */
+        .floating-container {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 9999;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .btn-float {
+            width: 55px;
+            height: 55px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            transition: all 0.3s ease;
+            text-decoration: none !important;
+        }
+
+        /* WA Style */
+        .btn-float-wa {
+            background-color: #25D366;
+            color: white;
+            animation: pulse-wa 2s infinite;
+        }
+        
+        .btn-float-wa:hover {
+            background-color: #20bd5a;
+            transform: scale(1.1);
+            color: white;
+        }
+
+        /* Back Top Style */
+        .btn-float-top {
+            background: var(--gradient-bg);
+            color: white;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(20px);
+        }
+
+        .btn-float-top.show {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .btn-float-top:hover {
+            transform: translateY(-5px);
+            color: white;
+        }
+
+        @keyframes pulse-wa {
+            0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
+            70% { box-shadow: 0 0 0 10px rgba(37, 211, 102, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+        }
+
+        /* =========================================
+           11. MOBILE RESPONSIVE
            ========================================= */
         @media (max-width: 991px) {
-            .page-header { 
-                padding: 140px 0 60px 0; 
+            .navbar-collapse {
+                background: white;
+                padding: 20px;
+                border-radius: 10px;
+                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+                margin-top: 15px;
             }
-            .stat-card h2 {
-                font-size: 2rem;
-            }
-            .section-title {
-                text-align: center !important;
-            }
-            .section-title h2 {
-                font-size: 1.8rem;
-            }
+
+            .nav-link { margin: 10px 0; text-align: center; }
+            .btn-nav-small { display: block; width: 100%; text-align: center; margin-top: 10px; }
+            .page-header { padding: 140px 0 60px 0; }
+            .stat-card h2 { font-size: 2rem; }
+            .section-title { text-align: center !important; }
+            .section-title h2 { font-size: 1.8rem; }
+            .floating-container { bottom: 20px; right: 20px; }
+            .btn-float { width: 50px; height: 50px; font-size: 24px; }
         }
     </style>
 </head>
 
 <body>
 
-    <!-- NAVBAR (Identik dengan Landing Page) -->
     <nav class="navbar navbar-expand-lg fixed-top">
         <div class="container">
             <a class="navbar-brand d-flex align-items-center" href="index.html">
-                <img src="https://via.placeholder.com/40" alt="Logo" class="me-2">
+                <img src="assets/img/Logo.webp" alt="Logo">
             </a>
             <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
@@ -250,41 +373,43 @@
                     <li class="nav-item"><a class="nav-link active" href="about.html">Tentang</a></li>
                     <li class="nav-item"><a class="nav-link" href="gallery.html">Galeri</a></li>
                     <li class="nav-item"><a class="nav-link" href="paket.html">Paket</a></li>
+                    <li class="nav-item"><a class="nav-link" href="Blog.html">Blog</a></li>
                     <li class="nav-item ms-lg-3">
-                        <a href="index.html#cta" class="btn btn-daftar">Daftar Sekarang</a>
+                        <a href="daftar.html" class="btn btn-nav-small">Daftar Sekarang</a>
                     </li>
                 </ul>
             </div>
         </div>
     </nav>
 
-    <!-- HEADER HALAMAN -->
     <header class="page-header">
         <div class="container">
-            <h1 class="fw-800 display-4">Tentang Kami</h1>
+            <h1 class="fw-bold display-4">Tentang Kami</h1>
             <p class="lead">Mengenal lebih dekat lembaga bimbingan belajar terbaik untuk masa depanmu.</p>
         </div>
     </header>
 
-    <!-- SEJARAH & PENGENALAN -->
     <section class="py-5">
         <div class="container py-lg-5">
             <div class="row align-items-center">
                 <div class="col-lg-6 mb-4 mb-lg-0">
-                    <img src="https://via.placeholder.com/600x400/0dcaf0/ffffff?text=Our+Story" alt="About Us" class="img-fluid rounded-4 shadow">
+                    <img src="assets/img/kelas12.webp" alt="Tentang MakinBisa" class="img-fluid rounded-4 shadow">
                 </div>
                 <div class="col-lg-6 ps-lg-5">
                     <div class="section-title text-start">
                         <h2 class="text-start">Membangun Generasi Juara</h2>
                     </div>
-                    <p>MakinBisa.id didirikan dengan satu misi sederhana: <b>Membuat belajar menjadi lebih mudah dan terukur.</b> Kami percaya bahwa setiap siswa memiliki potensi besar yang hanya membutuhkan arahan yang tepat.</p>
-                    <p>Sejak tahun 2020, kami telah membantu ribuan siswa masuk ke PTN impian seperti UI, ITB, UGM, dan Unpad melalui metode <i>Adaptive Learning</i> yang menggabungkan kedalaman materi dengan strategi cepat menjawab soal.</p>
+                    <p>MakinBisa.id didirikan dengan satu misi sederhana: <b>Membuat belajar menjadi lebih mudah dan
+                            terukur.</b> Kami percaya bahwa setiap siswa memiliki potensi besar yang hanya membutuhkan
+                        arahan yang tepat.</p>
+                    <p>Sejak tahun 2020, kami telah membantu ribuan siswa masuk ke PTN impian seperti UI, ITB, UGM, dan
+                        Unpad melalui metode <i>Adaptive Learning</i> yang menggabungkan kedalaman materi dengan
+                        strategi cepat menjawab soal.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- STATS (Mirip garansilulusptn.com) -->
     <section class="stats-section text-center">
         <div class="container">
             <div class="row g-4">
@@ -316,14 +441,14 @@
         </div>
     </section>
 
-    <!-- VISI & MISI -->
     <section class="py-5 bg-light">
         <div class="container py-lg-5">
             <div class="row g-4">
                 <div class="col-md-6">
                     <div class="vision-box">
                         <h3 class="fw-bold text-primary mb-3"><i class="bi bi-eye-fill me-2"></i> Visi Kami</h3>
-                        <p>Menjadi platform bimbingan belajar nomor satu di Indonesia yang mencetak lulusan tidak hanya cerdas secara akademik, tapi juga memiliki mentalitas juara dan berkarakter.</p>
+                        <p>Menjadi platform bimbingan belajar nomor satu di Indonesia yang mencetak lulusan tidak hanya
+                            cerdas secara akademik, tapi juga memiliki mentalitas juara dan berkarakter.</p>
                     </div>
                 </div>
                 <div class="col-md-6">
@@ -331,7 +456,8 @@
                         <h3 class="fw-bold text-primary mb-3"><i class="bi bi-bullseye me-2"></i> Misi Kami</h3>
                         <ul class="ps-3">
                             <li class="mb-2">Menyediakan akses pendidikan berkualitas dengan biaya terjangkau.</li>
-                            <li class="mb-2">Mengembangkan metode belajar yang adaptif terhadap perubahan kurikulum.</li>
+                            <li class="mb-2">Mengembangkan metode belajar yang adaptif terhadap perubahan kurikulum.
+                            </li>
                             <li class="mb-2">Mendampingi siswa secara personal hingga mencapai kampus impian.</li>
                         </ul>
                     </div>
@@ -340,7 +466,6 @@
         </div>
     </section>
 
-    <!-- TIM PENGAJAR / MENTOR -->
     <section class="py-5">
         <div class="container py-lg-5">
             <div class="section-title text-center">
@@ -350,7 +475,8 @@
             <div class="row g-4">
                 <div class="col-lg-3 col-md-6">
                     <div class="mentor-card">
-                        <img src="https://via.placeholder.com/300x400/0a2558/ffffff?text=Mentor+1" class="mentor-img" alt="Mentor">
+                        <img src="assets/img/AndiPratama.webp" class="mentor-img"
+                            alt="Mentor Andi" loading="lazy">
                         <div class="mentor-info">
                             <h5>Andi Pratama</h5>
                             <span>Lulusan Teknik UI</span>
@@ -360,7 +486,8 @@
                 </div>
                 <div class="col-lg-3 col-md-6">
                     <div class="mentor-card">
-                        <img src="https://via.placeholder.com/300x400/0dcaf0/ffffff?text=Mentor+2" class="mentor-img" alt="Mentor">
+                        <img src="assets/img/SitiAminah.webp" class="mentor-img"
+                            alt="Mentor Siti" loading="lazy">
                         <div class="mentor-info">
                             <h5>Siti Aminah</h5>
                             <span>Lulusan Sastra Inggris ITB</span>
@@ -370,7 +497,8 @@
                 </div>
                 <div class="col-lg-3 col-md-6">
                     <div class="mentor-card">
-                        <img src="https://via.placeholder.com/300x400/0a2558/ffffff?text=Mentor+3" class="mentor-img" alt="Mentor">
+                        <img src="assets/img/BudiSantoso.webp" class="mentor-img"
+                            alt="Mentor Budi" loading="lazy">
                         <div class="mentor-info">
                             <h5>Budi Santoso</h5>
                             <span>Lulusan Kedokteran UGM</span>
@@ -380,7 +508,8 @@
                 </div>
                 <div class="col-lg-3 col-md-6">
                     <div class="mentor-card">
-                        <img src="https://via.placeholder.com/300x400/0dcaf0/ffffff?text=Mentor+4" class="mentor-img" alt="Mentor">
+                        <img src="assets/img/RinaWijaya.webp" class="mentor-img"
+                            alt="Mentor Rina" loading="lazy">
                         <div class="mentor-info">
                             <h5>Rina Wijaya</h5>
                             <span>Lulusan Ekonomi Unpad</span>
@@ -392,31 +521,50 @@
         </div>
     </section>
 
-    <!-- FOOTER (Identik dengan Landing Page) -->
+    <section id="cta" class="cta-section">
+        <div class="container">
+            <h2 class="fw-bold mb-3">Sudah Yakin dengan MakinBisa.id?</h2>
+            <p class="mb-4 lead">Jangan tunda kesuksesanmu. Amankan kursi belajarmu sekarang dan mulai perjalanan
+                menuju kampus impian.</p>
+            <a href="index.html#cta" class="btn btn-cta-light shadow">Daftar Sekarang Juga <i
+                    class="bi bi-arrow-right-circle ms-2"></i></a>
+        </div>
+    </section>
+
+    <div class="floating-container">
+        <a href="#" class="btn-float btn-float-top" id="btnBackToTop" title="Kembali ke Atas" aria-label="Back to Top">
+            <i class="bi bi-arrow-up"></i>
+        </a>
+        <a href="https://wa.me/62895639068080" target="_blank" class="btn-float btn-float-wa" title="Chat WhatsApp" aria-label="Chat WhatsApp">
+            <i class="bi bi-whatsapp"></i>
+        </a>
+    </div>
+
     <footer>
         <div class="container">
             <div class="row">
                 <div class="col-lg-4 col-md-6 mb-4">
                     <h5>MakinBisa.id</h5>
-                    <p class="small text-white-50">Platform edukasi terdepan yang fokus pada pengembangan akademik dan karakter siswa Indonesia.</p>
+                    <p class="small text-white-50">Platform edukasi terdepan yang fokus pada pengembangan akademik dan
+                        karakter siswa Indonesia.</p>
                 </div>
                 <div class="col-lg-2 col-md-6 mb-4">
                     <h5>Menu</h5>
                     <a href="index.html">Beranda</a>
                     <a href="about.html">Tentang Kami</a>
-                    <a href="index.html#gallery">Galeri</a>
-                    <a href="index.html#faq">FAQ</a>
+                    <a href="gallery.html">Galeri</a>
+                    <a href="faq.html">FAQ</a>
                 </div>
                 <div class="col-lg-3 col-md-6 mb-4">
                     <h5>Hubungi Kami</h5>
-                    <a href="#"><i class="bi bi-whatsapp me-2"></i> 0812-3456-7890</a>
-                    <a href="#"><i class="bi bi-envelope me-2"></i> halo@makinbisa.id</a>
+                    <a href="https://wa.me/62895639068080"><i class="bi bi-whatsapp me-2"></i> 0812-3456-7890</a>
+                    <a href="mailto:halo@makinbisa.id"><i class="bi bi-envelope me-2"></i> halo@makinbisa.id</a>
                 </div>
                 <div class="col-lg-3 col-md-6 mb-4">
                     <h5>Ikuti Kami</h5>
-                    <div class="d-flex gap-3">
-                        <a href="#" class="fs-4 text-white"><i class="bi bi-instagram"></i></a>
-                        <a href="#" class="fs-4 text-white"><i class="bi bi-youtube"></i></a>
+                    <div class="d-flex gap-3 justify-content-center justify-content-lg-start">
+                        <a href="#" class="fs-4 text-white" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+                        <a href="#" class="fs-4 text-white" aria-label="YouTube"><i class="bi bi-youtube"></i></a>
                     </div>
                 </div>
             </div>
@@ -428,6 +576,30 @@
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        const btnBackToTop = document.getElementById('btnBackToTop');
+
+        window.onscroll = function() {
+            scrollFunction();
+        };
+
+        function scrollFunction() {
+            if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+                btnBackToTop.classList.add('show');
+            } else {
+                btnBackToTop.classList.remove('show');
+            }
+        }
+
+        btnBackToTop.addEventListener('click', function(e) {
+            e.preventDefault();
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+    </script>
 </body>
 
 </html>
