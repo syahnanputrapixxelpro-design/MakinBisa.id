@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mengatasi Burnout Saat Persiapan Ujian - MakinBisa.id</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&family=Merriweather:ital,wght@0,300;0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+
+    <style>
+        /* === GLOBAL VARIABLES === */
+        :root {
+            --primary: #0d6efd;
+            --secondary: #0dcaf0;
+            --dark-blue: #0a2558;
+            --gradient-bg: linear-gradient(135deg, #0a2558 0%, #0099ff 100%);
+            --body-bg: #f9fbfd;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: #444;
+            background-color: var(--body-bg);
+            overflow-x: hidden;
+        }
+
+        a { text-decoration: none; }
+
+        /* === NAVBAR === */
+        .navbar {
+            background: white;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+            padding: 15px 0;
+            transition: 0.3s;
+        }
+        .navbar-brand { font-weight: 700; color: var(--dark-blue) !important; font-size: 1.5rem; }
+        .navbar-brand img { height: 40px; width: auto; margin-right: 10px; }
+        .nav-link { font-weight: 500; color: var(--dark-blue) !important; margin: 0 10px; transition: 0.3s; }
+        .nav-link:hover, .nav-link.active { color: var(--secondary) !important; }
+        
+        .btn-nav-small {
+            background: var(--gradient-bg);
+            color: white !important;
+            padding: 8px 25px;
+            border-radius: 50px;
+            font-weight: 600;
+            border: none;
+            font-size: 0.9rem;
+            transition: 0.3s;
+        }
+        .btn-nav-small:hover { transform: translateY(-2px); box-shadow: 0 5px 15px rgba(13, 110, 253, 0.3); }
+
+        /* === ARTICLE STYLING === */
+        .article-container {
+            margin-top: 120px;
+            max-width: 900px;
+        }
+
+        .article-meta {
+            font-size: 0.9rem;
+            color: #888;
+            margin-bottom: 20px;
+        }
+
+        .article-title {
+            font-weight: 800;
+            color: var(--dark-blue);
+            font-size: 2.5rem;
+            line-height: 1.3;
+            margin-bottom: 20px;
+        }
+
+        .featured-img-wrapper {
+            margin-bottom: 30px;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        .featured-img { width: 100%; height: auto; display: block; }
+        .img-caption {
+            font-size: 0.85rem;
+            color: #666;
+            text-align: center;
+            padding: 10px;
+            background: #eee;
+            font-style: italic;
+        }
+
+        /* TOC STYLE */
+        .toc-box {
+            background: #eef2f7;
+            border-left: 5px solid var(--secondary);
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 40px;
+        }
+        .toc-title {
+            font-weight: 700;
+            color: var(--dark-blue);
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .toc-list { margin-top: 15px; padding-left: 20px; display: block; }
+        .toc-list.hidden { display: none; }
+        .toc-list li { margin-bottom: 8px; }
+        .toc-list a { color: #444; font-weight: 500; }
+        .toc-list a:hover { color: var(--primary); text-decoration: underline; }
+
+        /* CONTENT TYPOGRAPHY */
+        .article-content {
+            font-family: 'Merriweather', serif;
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #333;
+        }
+        .article-content h2 {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 700;
+            color: var(--dark-blue);
+            margin-top: 40px;
+            margin-bottom: 20px;
+        }
+        .article-content h3 {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+            color: #333;
+            margin-top: 30px;
+            margin-bottom: 15px;
+        }
+        
+        blockquote {
+            background: #fff;
+            border-left: 5px solid var(--primary);
+            padding: 20px 30px;
+            margin: 30px 0;
+            font-style: italic;
+            color: #555;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            border-radius: 0 10px 10px 0;
+        }
+
+        .read-also {
+            background: rgba(13, 202, 240, 0.1);
+            padding: 15px 20px;
+            border-radius: 10px;
+            margin: 25px 0;
+            border-left: 4px solid var(--secondary);
+        }
+        .read-also a { font-weight: 700; color: var(--dark-blue); }
+        .read-also a:hover { text-decoration: underline; color: var(--primary); }
+
+        .promo-banner {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            object-position: center;
+            border-radius: 15px;
+            margin: 40px 0;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+            border: 2px solid var(--primary);
+        }
+
+        /* Author Box */
+        .author-box {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            margin-top: 50px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+            border: 1px solid #eee;
+        }
+        .author-img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-right: 20px;
+        }
+
+        /* Share Buttons */
+        .share-section { margin: 40px 0; text-align: center; }
+        .btn-share {
+            padding: 10px 20px;
+            border-radius: 50px;
+            color: white;
+            font-weight: 600;
+            margin: 5px;
+            transition: 0.3s;
+            border: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .btn-wa { background: #25d366; }
+        .btn-fb { background: #1877f2; }
+        .btn-tw { background: #000000; }
+        .btn-share:hover { opacity: 0.9; transform: translateY(-3px); color: white; }
+
+        /* Related Articles */
+        .related-section { background: #fff; padding: 60px 0; margin-top: 60px; border-top: 1px solid #eee; }
+        .related-card {
+            border: none;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            border-radius: 15px;
+            overflow: hidden;
+            transition: 0.3s;
+            height: 100%;
+        }
+        .related-card:hover { transform: translateY(-5px); box-shadow: 0 15px 30px rgba(0,0,0,0.1); }
+        .related-img { height: 180px; width: 100%; object-fit: cover; }
+        .related-body { padding: 20px; }
+        .related-title { font-weight: 700; font-size: 1.1rem; margin-bottom: 10px; color: var(--dark-blue); }
+
+        .faq-box .accordion-button:not(.collapsed) {
+            background-color: rgba(13, 202, 240, 0.1);
+            color: var(--dark-blue);
+        }
+
+        /* Footer */
+        footer { background: var(--dark-blue); color: white; padding: 70px 0 30px 0; }
+        footer h5 { font-weight: 700; color: var(--secondary); margin-bottom: 20px; }
+        footer a { color: #b0b0b0; display: block; margin-bottom: 10px; transition: 0.3s; }
+        footer a:hover { color: white; padding-left: 5px; }
+
+        @media (max-width: 768px) {
+            .article-title { font-size: 1.8rem; }
+            .author-box { flex-direction: column; text-align: center; }
+            .author-img { margin-right: 0; margin-bottom: 15px; }
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center" href="index.html">
+                <img src="assets/img/Logo.webp" alt="Logo">
+            </a>
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto align-items-center">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Beranda</a></li>
+                    <li class="nav-item"><a class="nav-link" href="about.html">Tentang</a></li>
+                    <li class="nav-item"><a class="nav-link" href="gallery.html">Galeri</a></li>
+                    <li class="nav-item"><a class="nav-link" href="paket.html">Paket</a></li>
+                    <li class="nav-item"><a class="nav-link" href="Blog.html">Blog</a></li>
+                    <li class="nav-item ms-lg-3">
+                        <a href="daftar.html" class="btn btn-nav-small">Daftar Sekarang</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container article-container">
+        <div class="row justify-content-center">
+            <div class="col-lg-10">
+                
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                        <li class="breadcrumb-item"><a href="blog.html">Blog</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">Mental Health</li>
+                    </ol>
+                </nav>
+
+                <h1 class="article-title">Mengatasi Burnout Saat Persiapan Ujian Nasional: Tanda-tanda & Solusinya</h1>
+                
+                <div class="article-meta d-flex align-items-center mb-4">
+                    <span class="me-3"><i class="bi bi-person-circle me-1"></i> Kak Andi Pratama</span>
+                    <span class="me-3"><i class="bi bi-calendar3 me-1"></i> 28 Mei 2024</span>
+                    <span><i class="bi bi-clock me-1"></i> 5 Menit Baca</span>
+                </div>
+
+                <figure class="featured-img-wrapper">
+                    <img src="assets/img/kelas4.webp" alt="Ilustrasi Burnout Belajar" class="featured-img">
+                    <figcaption class="img-caption">Ilustrasi siswa yang mengalami kelelahan mental saat belajar.</figcaption>
+                </figure>
+
+                <div class="toc-box">
+                    <div class="toc-title" onclick="toggleTOC()">
+                        <span><i class="bi bi-list-ul me-2"></i> Daftar Isi Artikel</span>
+                        <i class="bi bi-chevron-down" id="toc-icon"></i>
+                    </div>
+                    <ul class="toc-list" id="toc-list"></ul>
+                </div>
+
+                <article class="article-content" id="article-content">
+                    <p>Menjelang Ujian Nasional atau UTBK, tekanan untuk belajar seringkali membuat siswa lupa waktu. Namun, belajar terus-menerus tanpa jeda justru bisa menjadi bumerang. Kondisi ini sering disebut sebagai <strong>Burnout</strong>.</p>
+                    
+                    <p>Burnout bukan sekadar "lelah biasa". Ini adalah kondisi kelelahan fisik, emosional, dan mental akibat stres yang berkepanjangan. Jika dibiarkan, motivasi belajarmu bisa hilang total.</p>
+
+                    <h2>1. Kenali Tanda-Tanda Kamu Sedang Burnout</h2>
+                    <p>Seringkali kita tidak sadar sedang mengalami burnout. Coba cek apakah kamu merasakan gejala berikut ini:</p>
+                    
+                    <h3>Gejala Fisik:</h3>
+                    <ul>
+                        <li>Sering sakit kepala atau sakit perut tanpa sebab.</li>
+                        <li>Perubahan pola tidur (insomnia atau kebanyakan tidur).</li>
+                        <li>Mudah lelah meskipun sudah istirahat.</li>
+                    </ul>
+
+                    <h3>Gejala Emosional:</h3>
+                    <ul>
+                        <li>Merasa cemas berlebihan setiap mau belajar.</li>
+                        <li>Kehilangan motivasi dan merasa "kosong".</li>
+                        <li>Mudah marah atau sensitif.</li>
+                    </ul>
+
+                    <div class="read-also">
+                        <i class="bi bi-lightbulb me-2 text-warning"></i>
+                        Baca Juga: <a href="blog1.html">5 Cara Efektif Mengatur Waktu Belajar untuk UTBK</a>
+                    </div>
+
+                    <h2>2. Cara Ampuh Mengatasi Burnout</h2>
+                    <p>Jika kamu merasakan tanda-tanda di atas, STOP sejenak! Memaksa diri belajar saat burnout sama sekali tidak efektif. Lakukan langkah berikut:</p>
+
+                    <h3>A. Istirahat Total (Digital Detox)</h3>
+                    <p>Luangkan waktu 1-2 hari untuk benar-benar lepas dari buku dan gadget. Biarkan otakmu <em>reboot</em> kembali.</p>
+
+                    <blockquote>
+                        "Istirahat bukan berarti berhenti. Itu adalah cara untuk mengisi ulang energimu agar bisa berlari lebih jauh." - Psikolog Pendidikan
+                    </blockquote>
+
+                    <figure class="my-4">
+                        <img src="assets/img/kelas7.webp" alt="Ilustrasi Istirahat" class="img-fluid rounded">
+                        <figcaption class="img-caption">Luangkan waktu untuk hobi atau sekadar jalan-jalan santai.</figcaption>
+                    </figure>
+
+                    <h3>B. Ubah Suasana Belajar</h3>
+                    <p>Bosan belajar di kamar? Coba pindah ke perpustakaan, kafe, atau taman. Suasana baru bisa memicu semangat baru.</p>
+
+                    <h3>C. Curhat ke Teman atau Mentor</h3>
+                    <p>Jangan dipendam sendiri. Bercerita tentang kecemasanmu kepada teman seperjuangan atau mentor bisa sangat melegakan.</p>
+
+                    <a href="paket.html" class="d-block text-center my-5">
+                        <img src="https://media.giphy.com/media/l2Je66zG6mAAZxgqI/giphy.gif" alt="Promo Semangat Belajar GIF" class="promo-banner">
+                        <p class="small text-muted fst-italic mt-2">Butuh mentor yang mengerti kondisi mentalmu? Gabung MakinBisa.id!</p>
+                    </a>
+
+                    <h2>3. Kapan Harus Mencari Bantuan Profesional?</h2>
+                    <p>Jika perasaan cemas, sedih, atau lelah tidak kunjung hilang lebih dari 2 minggu dan mulai mengganggu aktivitas sehari-hari, jangan ragu untuk berkonsultasi dengan psikolog atau guru BK di sekolahmu.</p>
+
+                    <div class="read-also">
+                        <i class="bi bi-bookmark-star me-2 text-primary"></i>
+                        Baca Juga: <a href="blog2.html">Bingung Pilih Jurusan? Simak Perbedaan TI vs SI</a>
+                    </div>
+
+                    <h2 class="mt-5">Kesimpulan</h2>
+                    <p>Kesehatan mentalmu jauh lebih berharga daripada nilai ujian. Belajarlah dengan cerdas, bukan hanya keras. Kenali batas kemampuan dirimu dan jangan lupa bahagia!</p>
+
+                </article>
+
+                <div class="mt-5 mb-5 faq-box">
+                    <h3 class="fw-bold mb-3"><i class="bi bi-question-circle-fill text-primary"></i> FAQ Burnout Belajar</h3>
+                    <div class="accordion" id="faqArticle">
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq1">
+                                    Apa bedanya malas dengan burnout?
+                                </button>
+                            </h2>
+                            <div id="faq1" class="accordion-collapse collapse" data-bs-parent="#faqArticle">
+                                <div class="accordion-body">Malas biasanya karena tidak mau melakukan, sedangkan burnout adalah kondisi "ingin melakukan tapi tidak mampu" karena kelelahan mental.</div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq2">
+                                    Berapa lama waktu istirahat yang ideal?
+                                </button>
+                            </h2>
+                            <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faqArticle">
+                                <div class="accordion-body">Tergantung kondisi individu. Untuk istirahat harian, tidur 7-8 jam sangat disarankan. Jika burnout parah, rehat total 1-2 hari bisa membantu.</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="share-section">
+                    <p class="fw-bold mb-2">Artikel ini membantu? Share yuk:</p>
+                    <button onclick="shareToWA()" class="btn-share btn-wa"><i class="bi bi-whatsapp"></i> WhatsApp</button>
+                    <button onclick="shareToFB()" class="btn-share btn-fb"><i class="bi bi-facebook"></i> Facebook</button>
+                    <button onclick="shareToTW()" class="btn-share btn-tw"><i class="bi bi-twitter-x"></i> Twitter</button>
+                </div>
+
+                <div class="author-box">
+                    <img src="https://via.placeholder.com/150/0a2558/ffffff?text=Andi" alt="Foto Penulis" class="author-img">
+                    <div>
+                        <h5 class="fw-bold mb-1">Kak Andi Pratama</h5>
+                        <p class="text-muted small mb-2">Konselor Akademik di MakinBisa.id</p>
+                        <p class="mb-0">Berpengalaman mendampingi ratusan siswa menghadapi tekanan ujian dengan pendekatan psikologi positif dan strategi belajar yang humanis.</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <section class="related-section">
+        <div class="container">
+            <h3 class="fw-bold mb-4 text-center">Artikel Terkait Lainnya</h3>
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="related-card">
+                        <img src="assets/img/kelas1.webp" class="related-img">
+                        <div class="related-body">
+                            <h5 class="related-title">5 Cara Efektif Belajar UTBK</h5>
+                            <p class="small text-muted">Manajemen waktu agar belajarmu lebih efisien.</p>
+                            <a href="blog1.html" class="btn btn-sm btn-outline-primary rounded-pill">Baca Selengkapnya</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="related-card">
+                        <img src="assets/img/kelas2.webp" class="related-img">
+                        <div class="related-body">
+                            <h5 class="related-title">Teknik Informatika vs SI</h5>
+                            <p class="small text-muted">Pahami bedanya sebelum salah pilih jurusan.</p>
+                            <a href="blog2.html" class="btn btn-sm btn-outline-primary rounded-pill">Baca Selengkapnya</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="related-card">
+                        <img src="assets/img/kelas3.webp" class="related-img">
+                        <div class="related-body">
+                            <h5 class="related-title">Info Beasiswa Luar Negeri 2024</h5>
+                            <p class="small text-muted">Kuliah gratis di luar negeri bukan mimpi lagi.</p>
+                            <a href="blog3.html" class="btn btn-sm btn-outline-primary rounded-pill">Baca Selengkapnya</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <h5>MakinBisa.id</h5>
+                    <p class="small text-white-50">Platform edukasi terdepan yang fokus pada pengembangan akademik dan karakter siswa Indonesia.</p>
+                </div>
+                <div class="col-lg-2 col-md-6 mb-4">
+                    <h5>Menu</h5>
+                    <a href="index.html">Beranda</a>
+                    <a href="about.html">Tentang Kami</a>
+                    <a href="gallery.html">Galeri</a>
+                    <a href="faq.html">FAQ</a>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <h5>Hubungi Kami</h5>
+                    <a href="#"><i class="bi bi-whatsapp me-2"></i> 0812-3456-7890</a>
+                    <a href="#"><i class="bi bi-envelope me-2"></i> halo@makinbisa.id</a>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <h5>Ikuti Kami</h5>
+                    <div class="d-flex gap-3 justify-content-center justify-content-lg-start">
+                        <a href="#" class="fs-4 text-white"><i class="bi bi-instagram"></i></a>
+                        <a href="#" class="fs-4 text-white"><i class="bi bi-youtube"></i></a>
+                        <a href="#" class="fs-4 text-white"><i class="bi bi-tiktok"></i></a>
+                    </div>
+                </div>
+            </div>
+            <hr style="border-color: rgba(255,255,255,0.1);">
+            <div class="text-center small text-white-50">
+                &copy; 2024 MakinBisa.id. All Rights Reserved.
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        // 1. Script Generate Table of Content (TOC)
+        document.addEventListener("DOMContentLoaded", function() {
+            const articleContent = document.getElementById('article-content');
+            const tocList = document.getElementById('toc-list');
+            const headers = articleContent.querySelectorAll('h2, h3');
+
+            if (headers.length > 0) {
+                headers.forEach((header, index) => {
+                    if (!header.id) {
+                        header.id = 'heading-' + index;
+                    }
+                    const li = document.createElement('li');
+                    const a = document.createElement('a');
+                    a.href = '#' + header.id;
+                    a.textContent = header.textContent;
+                    
+                    if(header.tagName === 'H3') {
+                        li.style.marginLeft = '20px';
+                        li.style.listStyleType = 'circle';
+                    }
+                    li.appendChild(a);
+                    tocList.appendChild(li);
+                });
+            } else {
+                document.querySelector('.toc-box').style.display = 'none';
+            }
+        });
+
+        // Toggle TOC
+        function toggleTOC() {
+            const list = document.getElementById('toc-list');
+            const icon = document.getElementById('toc-icon');
+            list.classList.toggle('hidden');
+            
+            if (list.classList.contains('hidden')) {
+                icon.classList.remove('bi-chevron-down');
+                icon.classList.add('bi-chevron-right');
+            } else {
+                icon.classList.remove('bi-chevron-right');
+                icon.classList.add('bi-chevron-down');
+            }
+        }
+
+        // 2. Script Share Buttons
+        const currentUrl = encodeURIComponent(window.location.href);
+        const articleTitle = encodeURIComponent(document.title);
+
+        function shareToWA() {
+            window.open(`https://wa.me/?text=${articleTitle}%20${currentUrl}`, '_blank');
+        }
+        function shareToFB() {
+            window.open(`https://www.facebook.com/sharer/sharer.php?u=${currentUrl}`, '_blank');
+        }
+        function shareToTW() {
+            window.open(`https://twitter.com/intent/tweet?text=${articleTitle}&url=${currentUrl}`, '_blank');
+        }
+    </script>
+</body>
+</html>
